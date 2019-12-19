@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div th:replace="plugins/js::js"></div>
+<body>
+<div style="position: absolute;left: 0;right: 0;top: 0;bottom: 0">
+    <div style="display: flex;justify-content: center;margin-top: 15%">
+        <form class="layui-form" th:action="@{/pages/front/login}" method="post"
+              style="border: solid #5FB878 1px;padding: 20px;border-radius: 10px;box-shadow: 0 0 10px #5FB878">
+            <div class="layui-form-item">
+                <div>
+                    <label class="layui-form-label">验证手机</label>
+                    <div class="layui-input-inline">
+                        <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <div>
+                    <label class="layui-form-label">登录密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div style="text-align: center">
+                    <div th:text="${errorMsg}" style="color: red"></div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+</body>
+</html>
