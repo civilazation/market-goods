@@ -28,9 +28,10 @@ public class IndexController {
     String index(Model model) {
         User user = userDao.selectByPrimaryKey(1);
         model.addAttribute("types", typeService.selectTypesByParentId(-1));
-
+        System.err.println("你好，李四");
         return "index";
     }
+
     @RequestMapping("/pages/back/dashBoard")
     String dashBoard() {
         return "pages/back/dashBoard";
