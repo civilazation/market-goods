@@ -1,5 +1,5 @@
 server:
-  port: 80   #当前应用运行的端口
+  port: 8090   #当前应用运行的端口
 spring:
   datasource:     #数据源配置
     type: com.alibaba.druid.pool.DruidDataSource  #连接池的类型
