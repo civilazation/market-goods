@@ -6,6 +6,7 @@ import com.qianfeng.market.pojo.entity.GoodsType;
 import com.qianfeng.market.pojo.vo.GoodsTypeVO;
 import com.qianfeng.market.service.TypeService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,12 +40,16 @@ public class TypeServiceImpl implements TypeService {
 //            List<GoodsTypeVO> childrenTypes = goodsTypeDao.selectTypesByParentId(g.getGoodsTypeId());
 //            g.setChildrenTypes(childrenTypes);
 //        }
-        List<GoodsTypeVO> childrenTypes = goodsTypeDao.selectTypesByParentIds(parentTypes);
-        Map<Integer, List<GoodsTypeVO>> collect = childrenTypes.stream().collect(Collectors.groupingBy(GoodsTypeVO::getParentTypeId));
-        for (GoodsTypeVO g : parentTypes) {// for循环里边调用查询语句，非常影响性能
-            List<GoodsTypeVO> childrenTypes1 = collect.get(g.getGoodsTypeId());
-            g.setChildrenTypes(childrenTypes1);
+
+        if(!CollectionUtils.isEmpty(parentTypes)){
+            List<GoodsTypeVO> childrenTypes = goodsTypeDao.selectTypesByParentIds(parentTypes);
+            Map<Integer, List<GoodsTypeVO>> collect = childrenTypes.stream().collect(Collectors.groupingBy(GoodsTypeVO::getParentTypeId));
+            for (GoodsTypeVO g : parentTypes) {// for循环里边调用查询语句，非常影响性能
+                List<GoodsTypeVO> childrenTypes1 = collect.get(g.getGoodsTypeId());
+                g.setChildrenTypes(childrenTypes1);
+            }
         }
+
         return parentTypes;
     }
 
