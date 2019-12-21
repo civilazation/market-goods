@@ -26,7 +26,7 @@
 <!--// 头部-->
 <div style="display: flex;align-items: center">
     <div style="width: 40%">
-        <img src="/images/index/logo.png"/>
+        <img th:src="@{/images/img/logo.png}" style="height: 65px;width: 120px"/>
     </div>
     <div style="width: 40%">
 
@@ -48,6 +48,7 @@
          style="cursor: pointer;width: 50px;text-align: center;border: solid lightgray 1px ;background: rgb(245,245,245);padding: 6px;margin-left: 30px;">
         登录
     </div>
+    <div style="cursor: pointer;width: 50px;text-align: center;border: solid lightgray 1px ;background: rgb(245,245,245);padding: 6px;margin-left: 30px;"><span><a href="/pages/front/toPage?url=/pages/front/login/regist.html">注册</a></span></div>
 </div>
 <div style="display: flex;">
     <div style="width: 20%;border: solid red 1px ">
@@ -83,7 +84,7 @@
                             let g = data[x];
 
                             let goodsItem = $("<div style=\"padding: 10px;border: solid lightgray 1px;box-shadow: 0 0 5px lightgray;width: 26%;;margin: 15px\">\n" +
-                                "            <div><img src='" + g.img + "' style=\"width: 100%\"/></div>\n" +
+                                "            <div><img src='" + g.img + "' style='width: 100%;height: 250px'></div>\n" +
                                 "            <div style=\"color: orangered;padding: 5px 0\">¥<span style=\"font-size: 22px;\">" + g.price + "</span></div>\n" +
                                 "            <div id=\"goods_title\">" + g.title + "</div>\n" +
                                 "            <div style=\"color: orangered;font-size:12px;font-weight: bold;padding: 5px 0;color: #646fb0\">" + g.evaluationCount + "万+<span\n" +

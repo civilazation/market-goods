@@ -41,4 +41,16 @@ public class UserServiceImpl implements UserService {
     public User getUserByPhone(String phone) {
         return userDao.selectByPhone(phone);
     }
+
+    @Override
+    public void register(User user) {
+        User u = userDao.selectByPhone(user.getPhone());
+        if (u!=null){
+            System.out.println("用户名已经存在");
+        }else{
+            if(user.getPhone()!=""&&user.getPassword()!=""){
+                userDao.insertSelective(user);
+            }
+        }
+    }
 }

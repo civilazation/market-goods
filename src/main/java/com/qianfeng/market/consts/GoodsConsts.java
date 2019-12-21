@@ -27,10 +27,10 @@ public class GoodsConsts {
     public static final String NO = "NO";
 
 
-    public static final String WINDOW_UPLOAD_PATH = "G:\\";
+    public static final String WINDOW_UPLOAD_PATH = "F:\\";
     public static final String LINUX_UPLOAD_PATH = "/";
 
-    public static final String WINDOW_CONFIG_UPLOAD_PATH = "file:G:\\upload\\";
+    public static final String WINDOW_CONFIG_UPLOAD_PATH = "file:F:\\upload\\";
     public static final String LINUX_CONFIG_UPLOAD_PATH = "file:/upload/";
 
 

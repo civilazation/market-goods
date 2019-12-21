@@ -22,4 +22,6 @@ public interface UserService {
      * @return
      */
     User getUserByPhone(String phone);
+
+    void register(User user);
 }
